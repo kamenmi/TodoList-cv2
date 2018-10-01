@@ -69,4 +69,23 @@ public class TodoTableModel extends AbstractTableModel {
                 return "?";
         }
     }
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        switch (columnIndex){
+            case 0:
+                return String.class;
+            case 1:
+                return Boolean.class;
+            case 2:
+                return String.class;
+            default:
+                return Object.class;
+        }
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return true;
+    }
 }
