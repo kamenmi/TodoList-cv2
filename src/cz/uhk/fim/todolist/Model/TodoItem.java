@@ -1,5 +1,9 @@
 package cz.uhk.fim.todolist.Model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TodoItem {
 
     private String title;
@@ -25,8 +29,15 @@ public class TodoItem {
         return complete;
     }
 
-    public void setComplete(boolean complete) {
+    public void setComplete(boolean complete) { // Zdroje kódu: https://www.mkyong.com/java/java-how-to-get-current-date-time-date-and-calender/
         this.complete = complete;
+        if (complete) {
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+            Date date = new Date();
+            setDateTime(dateFormat.format(date));}
+         else {
+             setDateTime("");
+        }
     }
 
     public String getDateTime() {
